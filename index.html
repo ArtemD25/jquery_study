@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1 class="visually-hidden">JQuery Calculator</h1>
+    <main class="main">
+      <article class="calc">
+        <h2 class="visually-hidden">Calculator</h2>
+        <p class="calc__input-wrapper">
+          <label class="visually-hidden" for="calc__input">Input for numbers</label>
+          <input class="calc__input" type="text" id="calc__input">
+        </p>
+        <ul class="calc__buttons">
+          <li class="calc__item">
+            <button class="calc__button" type="button"></button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button" type="button"></button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled" data-calc="btn-clear" type="button">C</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled" data-calc="btn-divide" type="button">/</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">9</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">8</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">7</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled" data-calc="btn-multiply" type="button">*</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">6</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">5</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">4</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled"  data-calc="btn-add" type="button">+</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">3</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">2</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">1</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled"  data-calc="btn-subtract" type="button">-</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button" type="button"></button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled number" type="button">0</button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button" type="button"></button>
+            </li>
+          <li class="calc__item">
+            <button class="calc__button filled"  data-calc="btn-equals" type="button">=</button>
+          </li>
+        </ul>
+      </article>
+      <section class="log">
+        <h2 class="visually-hidden">Log for calculation results</h2>
+        <ul class="log__list" id="log__list"></ul>
+      </section>
+    </main>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

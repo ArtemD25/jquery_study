@@ -1,0 +1,208 @@
+:root {
+  --btn-size: 40px;
+  --border-radius: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) 400px;
+  grid-template-rows: auto;
+  column-gap: 50px;
+  justify-content: center;
+  align-items: center;
+  grid-template-areas: "calc log";
+  padding: 40px 0;
+}
+
+@media (max-width: 930px) {
+  .main {
+    grid-template-columns: calc(30px * 2 + 10px * 3 + var(--btn-size) * 4);
+    grid-template-rows: auto 400px;
+    grid-template-areas: "calc"
+                          "log";
+  }
+}
+
+.calc {
+  grid-area: calc;
+  padding: 30px;
+  
+  border-radius: var(--border-radius);
+  background: #DC2424;
+  background: linear-gradient(to right, #4A569D, #DC2424);
+}
+
+.calc__input-wrapper {
+  margin: 0 0 40px 0;
+}
+
+.calc__input {
+  display: block;
+  width: 100%;
+  padding: 15px 10px;
+  border: none;
+  
+  border-radius: var(--border-radius);
+  text-align: right;
+}
+
+.error {
+  color: red;
+}
+
+.calc__buttons {
+  margin: 0;
+  padding: 0;
+  display: inline-grid;
+  grid-template-columns: repeat(4, var(--btn-size));
+  grid-template-rows: repeat(5, var(--btn-size));
+  gap: 10px;
+  
+  list-style-type: none;
+}
+
+.calc__button {
+  display: block;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  outline: none;
+  
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.filled {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.filled:active {
+  animation: changeColor 300ms ease-in-out;
+}
+
+@keyframes changeColor {
+  0% {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  25% {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.log {
+  grid-area: log;
+}
+
+.log__list {
+  margin: 0;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  list-style-type: none;
+}
+
+.log__item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.log__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.log__circle,
+.log__delete {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.log__circle {
+  margin-right: 10px;
+  border: 2px solid red;
+  border-radius: 100%;
+}
+
+.circle-full {
+  background-color: red;
+}
+
+.log__delete {
+  position: relative;
+  margin-right: 10px;
+}
+
+.log__delete::before,
+.log__delete::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #000000;
+}
+
+.log__delete::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.log__delete::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.log__delete:hover::before,
+.log__delete:hover::after {
+  background-color: red;
+}
+
+.log__text {
+  margin: 0;
+  text-align: center;
+  font-size: 26px;
+  word-break: break-all;
+  
+  overflow: hidden;
+}
